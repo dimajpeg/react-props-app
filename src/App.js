@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import './App.css';
 
-function LightSwitch() { 
+function LightSwitch() {
   const [isOn, setIsOn] = useState(true);
 
   const handleToggle = () => {
@@ -8,18 +9,23 @@ function LightSwitch() {
   };
 
   return (
-    <>
-      <h1>{isOn ? 'Свет включен' : 'Свет выключен'}</h1>
-      <button onClick={handleToggle}>
+    <div className={`light-switch-container ${isOn ? 'on' : 'off'}`}>
+      <h1 className={isOn ? 'on' : 'off'}>
+        {isOn ? '💡 Свет включен' : '💡 Свет выключен'}
+      </h1>
+      <button 
+        onClick={handleToggle}
+        className={`toggle-button ${isOn ? 'on' : 'off'}`}
+      >
         {isOn ? 'Выключить' : 'Включить'}
       </button>
-    </>
+    </div>
   );
 }
 
 function App() {
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+    <div className="app-container">
       <LightSwitch />
     </div>
   );

@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
+:root {
+  --background-color-on: #f0f0f0;
+  --background-color-off: #333;
+  --text-color-on: #333;
+  --text-color-off: #f0f0f0;
+  --button-color-on: #007bff;
+  --button-color-off: #dc3545;
+  --button-text-color: #fff;
+  --box-shadow-on: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-off: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  transition: background-color 0.5s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  transition: background-color 0.5s ease;
+}
+
+.light-switch-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow-off);
+  transition: box-shadow 0.5s ease, background-color 0.5s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.light-switch-container.on {
+  background-color: #fff;
+  box-shadow: var(--box-shadow-on);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.light-switch-container.off {
+  background-color: #555;
+  box-shadow: var(--box-shadow-off);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  transition: color 0.5s ease;
+}
+
+h1.on {
+  color: var(--text-color-on);
+}
+
+h1.off {
+  color: var(--text-color-off);
+}
+
+.toggle-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  color: var(--button-text-color);
+  transition: transform 0.2s ease, background-color 0.5s ease;
+}
+
+.toggle-button.on {
+  background-color: var(--button-color-on);
+}
+
+.toggle-button.off {
+  background-color: var(--button-color-off);
+}
+
+.toggle-button:hover {
+  transform: translateY(-3px);
+}
+
+.toggle-button:active {
+  transform: translateY(0);
 }
